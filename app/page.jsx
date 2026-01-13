@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
-// import { getProducts } from "./actions";
+import { getProducts } from "./actions";
 import AddProductForm from "@/components/AddProductForm";
-// import ProductCard from "@/components/ProductCard";
+import ProductCard from "@/components/ProductCard";
 import { TrendingDown, Shield, Bell, Rabbit } from "lucide-react";
 import AuthButton from "@/components/AuthButton";
 import Image from "next/image";
@@ -12,8 +12,7 @@ export default async function Home() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // const products = user ? await getProducts() : [];
-  const products = [];
+  const products = user ? await getProducts() : [];
 
   const FEATURES = [
     {
@@ -58,7 +57,7 @@ export default async function Home() {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-6 py-2 rounded-full text-sm font-medium mb-6">
-            Made with ❤️ by Roadside Coder
+            Save as Much as You Can
           </div>
 
           <h2 className="text-5xl font-bold text-gray-900 mb-4 tracking-tight">
